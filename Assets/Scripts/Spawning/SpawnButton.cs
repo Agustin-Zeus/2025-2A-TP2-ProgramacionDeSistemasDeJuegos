@@ -34,6 +34,5 @@ public class SpawnButton : MonoBehaviour
     private void HandleClick()
     {
         var spawner = FindFirstObjectByType<CharacterSpawner>();
-        spawner.Spawn();
     }
 }
