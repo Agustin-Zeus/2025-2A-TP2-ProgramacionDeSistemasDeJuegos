@@ -1,7 +1,6 @@
-
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Configs/CharacterConfig")]
+[CreateAssetMenu(fileName = "CharacterConfig", menuName = "Scriptable Objects/CharacterConfig")]
 public class CharacterConfig : ScriptableObject
 {
     public Character prefab;
