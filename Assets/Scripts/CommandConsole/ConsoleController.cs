@@ -28,26 +28,17 @@ public class ConsoleController : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        // Registrar commands
         RegisterCommand(new HelpCommand());
         RegisterCommand(new AliasesCommand());
         RegisterCommand(new PlayAnimationCommand());
 
-        // Setup UI
         consolePanel.SetActive(false);
         toggleButton.onClick.AddListener(ToggleConsole);
         inputField.onSubmit.AddListener(OnInputSubmit);
 
-        // Intercept logs
         defaultLogHandler = Debug.unityLogger.logHandler;
         interceptor = new LogInterceptor(defaultLogHandler, AppendLog);
         Debug.unityLogger.logHandler = interceptor;
-    }
-
-    private void Update()
-    {
-        //if (Input.GetKeyDown(KeyCode.F1))
-          //  ToggleConsole();
     }
 
     public void RegisterCommand(IConsoleCommand cmd)

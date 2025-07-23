@@ -47,7 +47,6 @@ public class PlayAnimationCommand : IConsoleCommand
         }
         else
         {
-            // 3) Si no se encontró, listar todas las animaciones válidas
             var list = string.Join(", ", validNames.OrderBy(n => n));
             ConsoleController.Instance.AppendLog(
                 $"Animatión '{animName}' not found. Valid Names: {list}"

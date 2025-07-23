@@ -13,9 +13,7 @@ public class LogInterceptor : ILogHandler
 
     public void LogFormat(LogType logType, Object context, string format, params object[] args)
     {
-        // Primero al log nativo
         original.LogFormat(logType, context, format, args);
-        // Luego a nuestra UI
         string msg = string.Format(format, args);
         uiLogger?.Invoke($"[{logType}] {msg}");
     }
